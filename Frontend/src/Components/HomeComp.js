@@ -21,9 +21,11 @@ function HomeComp() {
     };
 
     const submitValue = async () => {
-        let response = await axios.get('http://localhost:8000/location/getlocation/' + inputValue)
-        setCitiesData(response.data)
-        setCitiesDiv(true)
+        if(inputValue.length>0){
+            let response = await axios.get('http://localhost:8000/location/getlocation/' + inputValue)
+            setCitiesData(response.data)
+            setCitiesDiv(true)
+        }
     }
 
     const addToFavorites = (city) => {
