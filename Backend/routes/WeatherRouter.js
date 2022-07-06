@@ -19,8 +19,6 @@ router.get('/getweather/:locationkey', async function (req, res, next) {
 
 });
 router.post('/getFewCitiesWeather', async function (req, res, next) {
-
-    
     let response = await weatherBL.getCurrentWeatherForOneOrMore(req.body);
     if (response == false) {
         res.json(false)

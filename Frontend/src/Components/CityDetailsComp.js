@@ -28,7 +28,7 @@ function CityDetailsComp(props) {
 
 
             <div className='cityElementsDiv'>
-                {props.page=='home' && <button className='favoriteButton' onClick={() => { addCityToFavorites() }} > Add to Favorites</button>}
+                {props.page == 'home' && <button className='favoriteButton' onClick={() => { addCityToFavorites() }} > Add to Favorites</button>}
                 {props.page == 'favorites' && <button className='favoriteButton' onClick={() => { removeFromFavorites() }} > Remove from Favorites</button>}
                 <img className='heartLogo' src="images/heartlogo.png" alt="HeartLogo" />
             </div>

@@ -27,7 +27,7 @@ const getCurrentWeather = async (locationKey) => {
         } catch (e) {
             console.log(e);
         }
-
+        //if the weather not in the DB. (initial false)
         if (isWeatherExistsInDB == false) {
 
             console.log('Request to External API getCurrentWeather()')
@@ -64,7 +64,7 @@ const getCurrentWeatherForOneOrMore = (arr) => {
         let requestsArr = []
         let dataArr = []
         let getWeather = []
-
+        //get autoComplete Promises
         arr.forEach(obj => {
             requestsArr.push(locationBL.getAutoComplete(obj.cityName))
         });
@@ -74,6 +74,7 @@ const getCurrentWeatherForOneOrMore = (arr) => {
         if (list.includes(undefined || false)) {
             reject(false);
         } else {
+            //if query 'tel aviv' can get various 'tel aviv' so need to filter by cityKey for one way match
             list.filter(arrObj => {
                 arrObj.forEach(city => {
                     if (arr.some(element => element.cityKey == city.Key)) {
@@ -81,15 +82,18 @@ const getCurrentWeatherForOneOrMore = (arr) => {
                     }
                 })
             })
+            //get weather details 
             dataArr.forEach(obj => {
                 getWeather.push(getCurrentWeather(obj.Key))
             })
+
             const weatherPromises = Promise.all(getWeather);
             const weatherList = await weatherPromises;
 
             if (weatherList.includes(undefined || false)) {
                 reject(false);
             } else {
+                //attaching the weatherDetails to the returned objects array
                 dataArr.forEach(cityDetails => {
                     let cityWeather = weatherList.filter(c => c.city_key == cityDetails.Key)
                     cityDetails.weather = cityWeather;

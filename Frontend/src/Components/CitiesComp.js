@@ -22,7 +22,7 @@ function CitiesComp(props) {
         <div>
             {cities.length > 0 && cities.map((city, index) => {
                 return <h1 key={index} onClick={() => cityClicked(city)}>{city.LocalizedName}</h1>
-                })
+            })
             }
 
         </div>

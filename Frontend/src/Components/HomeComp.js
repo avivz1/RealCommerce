@@ -26,9 +26,9 @@ function HomeComp() {
         setCitiesDiv(true)
     }
 
-    const addToFavorites = (city)=>{
-        if(localStorage.getItem(city.Key)===undefined || localStorage.getItem(city.Key)==null){
-            localStorage.setItem(city.Key,JSON.stringify(city.LocalizedName));
+    const addToFavorites = (city) => {
+        if (localStorage.getItem(city.Key) === undefined || localStorage.getItem(city.Key) == null) {
+            localStorage.setItem(city.Key, JSON.stringify(city.LocalizedName));
         }
     }
 
@@ -43,17 +43,17 @@ function HomeComp() {
                 value={inputValue}
             />
             <button onClick={submitValue}>Search</button>
-      
+
             <div className='container'>
 
-            <div className='col-1'>
-                {cityDetails.Key && <CityComponent addCallBack={addToFavorites} page={'home'} data={cityDetails} />}
+                <div className='col-1'>
+                    {cityDetails.Key && <CityComponent addCallBack={addToFavorites} page={'home'} data={cityDetails} />}
 
-            </div>
+                </div>
 
-            <div className='col-2'>
-                {citiesDiv && <CitiesComp callback={(city) =>setCityDetails(city)} data={citiesData} />}
-            </div>
+                <div className='col-2'>
+                    {citiesDiv && <CitiesComp callback={(city) => setCityDetails(city)} data={citiesData} />}
+                </div>
 
             </div>
         </div>
