@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  padding-top: 300;
+}
+
+.col-1 {
+  background-color: #cceeff;
+  flex: 1;
+}
+
+.col-2 {
+  background-color: #b3e6ff;
+  flex: 1;
+}
+
+.cityDetails {
+  display: flex;
+  padding: 5%;
+  margin: 5%;
+}
+
+.favoriteButton {
+  height: 50px;
+  width: fit-content;
+}
+
+.heartLogo {
+  height: 80px;
+  width: 80px;
+
+}
+
+.cityText {
+  font-size: 30px;
+  padding: 5px;
+  
+}
+
+.textDetailsDiv{
+  display: block;
+}
+
+
+.ul li{
+  float: center;
+  display: inline;
+  padding: 10px;
+  font-weight: bold;
+  color: black;
+}
